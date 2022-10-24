@@ -2,18 +2,9 @@
 <img src="https://camo.githubusercontent.com/c1d3eb5d227fd18a19460412645e80c7eb89e872b29b485666e3841f2f815983/68747470733a2f2f7777772e74696c656d6f756e7461696e2e636f2e756b2f6173736574732f6c6f676f2e737667" height="80px"/>  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Magento_Logo.svg/2560px-Magento_Logo.svg.png" height="80px"/>
 </div>
 
+## Bathroom Mountain Vue Storefront 2 integration with Magento
 
-### Stay connected
-
-![GitHub Repo stars](https://img.shields.io/github/stars/vuestorefront/vue-storefront?style=social)
-![Twitter Follow](https://img.shields.io/twitter/follow/vuestorefront?style=social)
-![YouTube Channel Subscribers](https://img.shields.io/youtube/channel/subscribers/UCkm1F3Cglty3CE1QwKQUhhg?style=social)
-[![Discord](https://img.shields.io/discord/770285988244750366?label=join%20discord&logo=Discord&logoColor=white)](https://discord.vuestorefront.io)
-
-
-## Vue Storefront 2 integration with Magento
-
-This project is a Magento 2 integration for Vue Storefront 2.
+This project is a Magento 2 integration for Vue Storefront 2 for bathroom Mountain.
 
 <hr />
 
