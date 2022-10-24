@@ -1,5 +1,5 @@
 <div align="center">
-<img src="https://user-images.githubusercontent.com/1626923/137092657-fb398d20-b592-4661-a1f9-4135db0b61d5.png" height="80px"/>  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Magento_Logo.svg/2560px-Magento_Logo.svg.png" height="80px"/>
+<img src="https://camo.githubusercontent.com/c1d3eb5d227fd18a19460412645e80c7eb89e872b29b485666e3841f2f815983/68747470733a2f2f7777772e74696c656d6f756e7461696e2e636f2e756b2f6173736574732f6c6f676f2e737667" height="80px"/>  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Magento_Logo.svg/2560px-Magento_Logo.svg.png" height="80px"/>
 </div>
 
 
