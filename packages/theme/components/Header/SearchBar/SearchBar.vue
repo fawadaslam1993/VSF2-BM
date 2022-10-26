@@ -3,7 +3,7 @@
     v-click-outside="closeSearch"
     :placeholder="$t('Search for items')"
     aria-label="Search"
-    class="sf-header__search"
+    class="sf-header__search border-[1px] border-[#b3b6b4] bg-[#e5ebee] h-11 pl-1 text-sm"
     :value="term"
     @input="debouncedHandleSearch($event)"
     @keyup.enter="handleKeydownEnter($event.target.value) /* https://github.com/vuestorefront/storefront-ui/issues/2453#issuecomment-1160231619 */"

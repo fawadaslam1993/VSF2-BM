@@ -3,21 +3,12 @@
     :to="localePath('/')"
     class="sf-header__logo"
   >
-    <SfImage
-      v-if="logoSrc"
+  <img
       image-tag="nuxt-img"
       :src="logoSrc"
       :alt="logoAlt"
       :title="logoAlt"
-      :width="logoWidth"
-      :height="logoHeight"
-    />
-    <SvgImage
-      v-else
-      icon="logo"
-      :label="$t('Vue Storefront Next')"
-      width="35"
-      height="34"
+      class="mobile-only:max-w-[94px] mobile-only:w-full mobile-only:pl-2.5"
     />
   </nuxt-link>
 </template>
@@ -38,15 +29,15 @@ export default defineComponent({
       const baseMediaUrl = config.value.base_media_url;
       const logo = config.value.header_logo_src;
 
-      return baseMediaUrl && logo ? `${baseMediaUrl}logo/${logo}` : '';
+      return '/logo.svg';
     });
 
     const logoWidth = computed(
-      () => config.value.logo_width || '35',
+      () => config.value.logo_width || '150',
     );
 
     const logoHeight = computed(
-      () => config.value.logo_height || '34',
+      () => config.value.logo_height || '68',
     );
 
     const logoAlt = computed(
@@ -68,6 +59,10 @@ export default defineComponent({
     align-items: center;
     display: inline-flex;
     min-height: 80px;
+  }
+  @media (min-width: 768px){
+    /*--image-width: 158px;*/
+    --image-height: auto;
   }
 }
 </style>

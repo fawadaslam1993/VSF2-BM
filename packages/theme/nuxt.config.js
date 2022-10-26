@@ -28,6 +28,9 @@ const {
 
 export default async () => {
   const baseConfig = {
+    css: [
+      '@/assets/css/main.css',
+    ],
     ssr: true,
     dev: process.env.VSF_NUXT_APP_ENV !== 'production',
     server: {
@@ -62,6 +65,7 @@ export default async () => {
     },
     buildModules: [
       // to core
+      '@nuxt/postcss8',
       '@nuxtjs/composition-api/module',
       '@nuxt/typescript-build',
       '@nuxtjs/pwa',
@@ -141,15 +145,15 @@ export default async () => {
       }],
     ],
     i18n: {
-      country: 'US',
+      country: 'GB',
       baseUrl: process.env.VSF_STORE_URL,
       strategy: 'prefix',
       locales: [
         {
           code: 'default',
           file: 'en.js',
-          iso: 'en_US',
-          defaultCurrency: 'USD',
+          iso: 'en_GB',
+          defaultCurrency: 'GBP',
         },
         {
           code: 'german',
@@ -195,6 +199,13 @@ export default async () => {
       extractCSS: true,
       optimizeCSS: true,
       parallel: true,
+      postcss: {
+        plugins: {
+          tailwindcss: {},
+          autoprefixer: {},
+        },
+      },
+      
       extend(cfg) {
         // eslint-disable-next-line no-param-reassign
         cfg.devtool = 'source-map';

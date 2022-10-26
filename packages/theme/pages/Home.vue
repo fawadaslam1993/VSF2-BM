@@ -12,6 +12,9 @@
       :nuxt-img-config="hero.imageConfig"
       image-tag="nuxt-img"
     />
+    <h1 class="text-3xl font-bold underline bg-[green]">
+    Hello world!
+  </h1>
     <LazyHydrate when-visible>
       <SfBannerGrid
         :banner-grid="1"
