@@ -7,40 +7,42 @@
       <template #logo>
         <HeaderLogo />
       </template>
-      <template #navigation>
-        <!-- <HeaderNavigation :category-tree="categoryTree" /> -->
-      </template>
-      <template #aside>
-        <div class="sf-header__switchers">
-          <CurrencySelector
-            v-if="hasCurrencyToSelect"
-            class="smartphone-only"
-          />
-          <StoreSwitcher
-            v-if="hasStoresToSelect"
-            class="smartphone-only"
-          />
-        </div>
-      </template>
       <template #header-icons="{ activeIcon }">
-        <div class="sf-header__icons">
-          <SfButton
-            v-e2e="'app-header-account'"
-            class="sf-button--pure sf-header__action"
-            data-testid="accountIcon"
-            aria-label="Account"
-            @click="handleAccountClick"
-          >
-            <SvgImage
-              :icon="accountIcon"
-              :label="$t('Account')"
-              width="1.25rem"
-              height="1.25rem"
-              :class="{
-                'sf-header__icon is-active': activeIcon === 'account',
-              }"
-            />
-          </SfButton>
+        <div class="sf-header__icons mobile-only:flex items-center mobile-only:pr-[12px]">
+          <div class="lg:ml-11 md:ml-8 mobile-only:ml-0 mobile-only:w-[14vw] cursor-pointer">
+            <nuxt-link :to="localePath('/showrooms_info')">
+               <img class="w-6 h-6 mobile-only:h-[20px]" src="../static/icons/location.svg">
+            </nuxt-link>
+            <p class="text-xs text-[#54575b] font-['Poppins']">Showroom</p>
+          </div>
+          <div class="lg:ml-11 md:ml-8 mobile-only:ml-0 mobile-only:w-[14vw]">
+            <PhoneNumber :identifiers="PhoneNumber" />
+          </div>
+          <div class="lg:ml-11 md:ml-8 mobile-only:ml-0 mobile-only:w-[14vw] cursor-pointer">
+            <img class="w-6 h-6 mobile-only:h-[20px]" @click="handleAccountClick" src="../static/icons/user.svg">
+            <p class="text-xs text-[#54575b]">Account</p>
+          </div>
+          <div class="lg:ml-11 md:ml-8 mobile-only:ml-0 cursor-pointer mt-[-8px]">
+            <img class="w-7 h-7" @click="toggleCartSidebar" src="../static/icons/basket.svg">
+            <p class="text-xs text-[#54575b]">Basket</p>
+          </div>
+          <!--          <SfButton-->
+          <!--            v-e2e="'app-header-account'"-->
+          <!--            class="sf-button&#45;&#45;pure sf-header__action"-->
+          <!--            data-testid="accountIcon"-->
+          <!--            aria-label="Account"-->
+          <!--            @click="handleAccountClick"-->
+          <!--          >-->
+          <!--            <SvgImage-->
+          <!--              :icon="accountIcon"-->
+          <!--              :label="$t('Account')"-->
+          <!--              width="1.25rem"-->
+          <!--              height="1.25rem"-->
+          <!--              :class="{-->
+          <!--                'sf-header__icon is-active': activeIcon === 'account',-->
+          <!--              }"-->
+          <!--            />-->
+          <!--          </SfButton>-->
           <SfButton
             v-if="isAuthenticated"
             class="sf-button--pure sf-header__action"
@@ -65,29 +67,29 @@
               {{ wishlistItemsQty }}
             </SfBadge>
           </SfButton>
-          <SfButton
-            v-e2e="'app-header-cart'"
-            class="sf-button--pure sf-header__action"
-            aria-label="Toggle cart sidebar"
-            @click="toggleCartSidebar"
-          >
-            <SvgImage
-              icon="empty_cart"
-              :label="$t('Cart')"
-              width="20"
-              height="20"
-              class="sf-header__icon"
-              :class="{
-                'sf-header__icon is-active': activeIcon === 'cart',
-              }"
-            />
-            <SfBadge
-              v-if="cartTotalItems"
-              class="sf-badge--number cart-badge"
-            >
-              {{ cartTotalItems }}
-            </SfBadge>
-          </SfButton>
+          <!--          <SfButton-->
+          <!--            v-e2e="'app-header-cart'"-->
+          <!--            class="sf-button&#45;&#45;pure sf-header__action"-->
+          <!--            aria-label="Toggle cart sidebar"-->
+          <!--            @click="toggleCartSidebar"-->
+          <!--          >-->
+          <!--            <SvgImage-->
+          <!--              icon="empty_cart"-->
+          <!--              :label="$t('Cart')"-->
+          <!--              width="20"-->
+          <!--              height="20"-->
+          <!--              class="sf-header__icon"-->
+          <!--              :class="{-->
+          <!--                'sf-header__icon is-active': activeIcon === 'cart',-->
+          <!--              }"-->
+          <!--            />-->
+          <!--            <SfBadge-->
+          <!--              v-if="cartTotalItems"-->
+          <!--              class="sf-badge&#45;&#45;number cart-badge"-->
+          <!--            >-->
+          <!--              {{ cartTotalItems }}-->
+          <!--            </SfBadge>-->
+          <!--          </SfButton>-->
         </div>
       </template>
       <template #search>
@@ -112,7 +114,7 @@
 import {
   SfOverlay, SfHeader, SfButton, SfBadge,
 } from '@storefront-ui/vue';
-
+import PhoneNumber from "~/components/PhoneNumber.vue";
 import {
   computed,
   ref,
@@ -122,7 +124,7 @@ import {
   onMounted,
   useFetch,
 } from '@nuxtjs/composition-api';
-import HeaderNavigation from '~/components/Header/Navigation/HeaderNavigation.vue';
+// import HeaderNavigation from '~/components/Header/Navigation/HeaderNavigation.vue';
 import { useCategory } from '~/modules/catalog/category/composables/useCategory';
 import {
   useUiHelpers,
@@ -139,7 +141,8 @@ import { useTopBar } from './TopBar/useTopBar';
 
 export default defineComponent({
   components: {
-    HeaderNavigation,
+    // HeaderNavigation,
+    PhoneNumber,
     SfHeader,
     SfOverlay,
     HeaderLogo,
@@ -182,6 +185,8 @@ export default defineComponent({
         toggleLoginModal();
       }
     };
+    const desktopMainMenuIdentifier = ref(['main_menu']);
+    const PhoneNumber = ref(['phone-number']);
 
     useFetch(async () => {
       await categoriesListLoad({ pageSize: 20 });
@@ -214,6 +219,8 @@ export default defineComponent({
       wishlistItemsQty,
       hasCurrencyToSelect,
       hasStoresToSelect,
+      desktopMainMenuIdentifier,
+      PhoneNumber
     };
   },
 });

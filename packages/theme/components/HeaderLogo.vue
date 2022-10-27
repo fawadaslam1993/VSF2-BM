@@ -8,7 +8,7 @@
       :src="logoSrc"
       :alt="logoAlt"
       :title="logoAlt"
-      class="mobile-only:max-w-[94px] mobile-only:w-full mobile-only:pl-2.5"
+      class="mobile-only:max-w-[94px] mobile-only:w-full mobile-only:pl-2.5 w-[120px]"
     />
   </nuxt-link>
 </template>

@@ -2,8 +2,8 @@
     <div class="phone">
       <a  :href="PhoneNumberLink" class="contact flex">
          <img src="../static/icons/phone.svg" alt="icon" class="w-6 mobile-only:w-5">
-        <p class="font-sans ml-0 text-lg text-gray-800 font-bold mobile-only:hidden">{{ PhoneNumberText }}</p>
       </a>
+      <p class="font-sans ml-0 text-gray-800 mobile-only:hidden text-xs text-[#54575b]">{{ PhoneNumberText }}</p>
     </div>
   </template>
   <script lang="ts">
