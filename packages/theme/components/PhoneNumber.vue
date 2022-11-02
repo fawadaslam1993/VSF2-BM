@@ -1,9 +1,9 @@
 <template>
-    <div class="phone">
+    <div class="phone flex flex-col items-center gap-2">
       <a  :href="PhoneNumberLink" class="contact flex">
-         <img src="../static/icons/phone.svg" alt="icon" class="w-6 mobile-only:w-5">
+         <img src="../static/icons/phone.svg" alt="icon" class="w-6 mobile-only:w-5 w-[27px] h-[20px] mt-1.5">
       </a>
-      <p class="font-sans ml-0 text-gray-800 mobile-only:hidden text-xs text-[#54575b]">{{ PhoneNumberText }}</p>
+      <p class="text-xs text-[#54575b] font-['Poppins'] Minitab-only:text-[0.625rem]">{{ PhoneNumberText }}</p>
     </div>
   </template>
   <script lang="ts">

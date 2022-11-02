@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div >
+    <div class="container mx-auto">
     <SfHeader
       class="sf-header--has-mobile-search"
       :class="{ 'header-on-top': isSearchOpen }"
@@ -9,22 +10,22 @@
       </template>
       <template #header-icons="{ activeIcon }">
         <div class="sf-header__icons mobile-only:flex items-center mobile-only:pr-[12px]">
-          <div class="lg:ml-11 md:ml-8 mobile-only:ml-0 mobile-only:w-[14vw] cursor-pointer">
+          <div class="lg:ml-11 md:ml-8 mobile-only:ml-0 mobile-only:w-[14vw] cursor-pointer flex flex-col items-center gap-1">
             <nuxt-link :to="localePath('/showrooms_info')">
-               <img class="w-6 h-6 mobile-only:h-[20px]" src="../static/icons/location.svg">
+               <img class="w-6 h-6 mobile-only:h-[20px] w-[27px] h-[20px] mt-1.5" src="../static/icons/location.svg">
             </nuxt-link>
-            <p class="text-xs text-[#54575b] font-['Poppins']">Showroom</p>
+            <p class="text-xs text-[#54575b] font-['Poppins'] Minitab-only:text-[0.625rem]">Showroom</p>
           </div>
           <div class="lg:ml-11 md:ml-8 mobile-only:ml-0 mobile-only:w-[14vw]">
             <PhoneNumber :identifiers="PhoneNumber" />
           </div>
-          <div class="lg:ml-11 md:ml-8 mobile-only:ml-0 mobile-only:w-[14vw] cursor-pointer">
-            <img class="w-6 h-6 mobile-only:h-[20px]" @click="handleAccountClick" src="../static/icons/user.svg">
-            <p class="text-xs text-[#54575b]">Account</p>
+          <div class="lg:ml-11 md:ml-8 mobile-only:ml-0 mobile-only:w-[14vw] cursor-pointer flex flex-col items-center gap-1">
+            <img class="w-6 h-6 mobile-only:h-[20px] w-[27px] h-[20px] mt-1.5" @click="handleAccountClick" src="../static/icons/user.svg">
+            <p class="text-xs text-[#54575b] font-['Poppins'] Minitab-only:text-[0.625rem]">Account</p>
           </div>
-          <div class="lg:ml-11 md:ml-8 mobile-only:ml-0 cursor-pointer mt-[-8px]">
-            <img class="w-7 h-7" @click="toggleCartSidebar" src="../static/icons/basket.svg">
-            <p class="text-xs text-[#54575b]">Basket</p>
+          <div class="lg:ml-11 md:ml-8 mobile-only:ml-0 cursor-pointer mt-[-8px] flex flex-col items-center gap-1">
+            <img class="w-7 h-7 w-[27px] h-[20px] mt-2" @click="toggleCartSidebar" src="../static/icons/basket.svg">
+            <p class="text-xs text-[#54575b] font-['Poppins'] Minitab-only:text-[0.625rem]">Basket</p>
           </div>
           <!--          <SfButton-->
           <!--            v-e2e="'app-header-account'"-->
@@ -107,6 +108,12 @@
       @close="isSearchOpen = false"
     />
     <SfOverlay :visible="isSearchOpen" />
+</div>
+    <div class="" id="">
+      <ContentDesktopMenuBlocks
+        :identifiers="desktopMainMenuIdentifier"
+      />
+    </div>
   </div>
 </template>
 
@@ -138,6 +145,7 @@ import type { CategoryTree, ProductInterface } from '~/modules/GraphQL/types';
 import HeaderLogo from '~/components/HeaderLogo.vue';
 import SvgImage from '~/components/General/SvgImage.vue';
 import { useTopBar } from './TopBar/useTopBar';
+import ContentDesktopMenuBlocks from '~/components/ContentDesktopMenuBlock.vue';
 
 export default defineComponent({
   components: {
@@ -149,6 +157,7 @@ export default defineComponent({
     SvgImage,
     SfButton,
     SfBadge,
+    ContentDesktopMenuBlocks,
     CurrencySelector: () => import('~/components/CurrencySelector.vue'),
     StoreSwitcher: () => import('~/components/StoreSwitcher.vue'),
     SearchBar: () => import('~/components/Header/SearchBar/SearchBar.vue'),
@@ -185,7 +194,7 @@ export default defineComponent({
         toggleLoginModal();
       }
     };
-    const desktopMainMenuIdentifier = ref(['main_menu']);
+    const desktopMainMenuIdentifier = ref(['megamenubathroom']);
     const PhoneNumber = ref(['phone-number']);
 
     useFetch(async () => {
@@ -248,3 +257,82 @@ export default defineComponent({
   left: 40%;
 }
 </style>
+<style lang="scss">
+  .sf-header__navigation{
+    --header-navigation-margin: unset !important;
+  }
+  .sf-header--has-mobile-search, .sf-header--has-mobile-navigation {
+    --header-box-shadow: none;
+}
+  .sf-header__actions{
+    @media (min-width: 1024px) {
+      justify-content: end !important;
+      align-items: center;
+      margin-right: 24px;
+    }
+    @media (min-width: 768px) and (max-width: 1023px){
+      flex-wrap: nowrap;
+    }
+    @media (max-width: 768px) {
+      padding-right: 6px;
+    }
+  }
+  .sf-header--has-mobile-search{
+    .sf-header__header{
+      padding: 0;
+      @media (max-width: 768px) {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        padding: 0;
+      }
+    }
+     .sf-header__logo{
+       @media (max-width: 768px) {
+       .sf-image {
+         width: 94px;
+         min-height: 45px;
+         object-fit: fill;
+         padding-left: 14px;
+         width: 100%;
+       }
+      }
+    }
+    @media (min-width: 768px){
+    .sf-header__icons{
+      /*@media (min-width: 1024px){*/
+        display: flex !important;
+      /*}*/
+    }
+    /*@media (max-width: 1024px) {*/
+    .sf-header__search {
+      --header-search-flex: 0 1 19.875rem;
+      /*}*/
+    }
+      .sf-header__header{
+      flex-wrap: nowrap;
+    }
+    }
+  }
+  input#search{
+    height: 2.625rem;
+    border-radius: 3px;
+    width: 100%;
+    border: 1px solid #bfc3cb;
+    font-size: 0.839375rem;
+    padding-left: 0.5rem;
+  @media (min-width: 1280px) {
+    min-width: 430px;
+  }
+  @media (min-width: 1024px) and (max-width: 1279px){
+    min-width: 330px;
+  }
+  @media (min-width: 992px) and (max-width: 1024px){
+    max-width: 250px;
+    margin-left: 65px;
+  }
+  @media (min-width: 768px) and (max-width: 991px){
+    margin-left: 70px;
+  }
+}
+</style>
+
