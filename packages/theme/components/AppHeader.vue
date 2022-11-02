@@ -14,18 +14,18 @@
             <nuxt-link :to="localePath('/showrooms_info')">
                <img class="w-6 h-6 mobile-only:h-[20px] w-[27px] h-[20px] mt-1.5" src="../static/icons/location.svg">
             </nuxt-link>
-            <p class="text-xs text-[#54575b] font-['Poppins'] Minitab-only:text-[0.625rem]">Showroom</p>
+            <p class="text-xs text-[#54575b] font-['Poppins'] Minitab-only:text-[0.625rem] Tab-only:hidden">Showroom</p>
           </div>
           <div class="lg:ml-11 md:ml-8 mobile-only:ml-0 mobile-only:w-[14vw]">
             <PhoneNumber :identifiers="PhoneNumber" />
           </div>
           <div class="lg:ml-11 md:ml-8 mobile-only:ml-0 mobile-only:w-[14vw] cursor-pointer flex flex-col items-center gap-1">
             <img class="w-6 h-6 mobile-only:h-[20px] w-[27px] h-[20px] mt-1.5" @click="handleAccountClick" src="../static/icons/user.svg">
-            <p class="text-xs text-[#54575b] font-['Poppins'] Minitab-only:text-[0.625rem]">Account</p>
+            <p class="text-xs text-[#54575b] font-['Poppins'] Minitab-only:text-[0.625rem] Tab-only:hidden">Account</p>
           </div>
           <div class="lg:ml-11 md:ml-8 mobile-only:ml-0 cursor-pointer mt-[-8px] flex flex-col items-center gap-1">
             <img class="w-7 h-7 w-[27px] h-[20px] mt-2" @click="toggleCartSidebar" src="../static/icons/basket.svg">
-            <p class="text-xs text-[#54575b] font-['Poppins'] Minitab-only:text-[0.625rem]">Basket</p>
+            <p class="text-xs text-[#54575b] font-['Poppins'] Minitab-only:text-[0.625rem] Tab-only:hidden">Basket</p>
           </div>
           <!--          <SfButton-->
           <!--            v-e2e="'app-header-account'"-->
@@ -320,6 +320,7 @@ export default defineComponent({
     border: 1px solid #bfc3cb;
     font-size: 0.839375rem;
     padding-left: 0.5rem;
+    margin-top: 5px;
   @media (min-width: 1280px) {
     min-width: 430px;
   }

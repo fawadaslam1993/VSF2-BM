@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <div class=" max-[991px]:block hidden">
+    <div class=" max-[991px]:block hidden mt-6">
       <span class=" inline-block bg-[#f2f2f2] px-[10px] py-[7px]">
         <img class="w-6 h-6" src="../static/icons/icon-hamburger.svg">
       </span>

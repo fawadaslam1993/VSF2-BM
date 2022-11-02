@@ -3,7 +3,7 @@
       <a  :href="PhoneNumberLink" class="contact flex">
          <img src="../static/icons/phone.svg" alt="icon" class="w-6 mobile-only:w-5 w-[27px] h-[20px] mt-1.5">
       </a>
-      <p class="text-xs text-[#54575b] font-['Poppins'] Minitab-only:text-[0.625rem]">{{ PhoneNumberText }}</p>
+      <p class="text-xs text-[#54575b] font-['Poppins'] Minitab-only:text-[0.625rem] Tab-only:hidden">{{ PhoneNumberText }}</p>
     </div>
   </template>
   <script lang="ts">
