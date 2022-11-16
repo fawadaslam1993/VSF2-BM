@@ -6371,7 +6371,9 @@ export interface Wishlist {
   /** The time of the last modification to the wish list */
   updated_at?: Maybe<Scalars['String']>;
 }
-
+export interface Fawad {
+  designation?: Maybe<Scalars['String']>;
+}
 export interface WishlistCartUserInputError {
   /** An error code that describes the error encountered */
   code: WishlistCartUserInputErrorType;

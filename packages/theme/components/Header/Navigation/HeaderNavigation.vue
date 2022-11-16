@@ -3,7 +3,7 @@
     class="header-navigation"
     @mouseleave="setCurrentCategory(null)"
   >
-    <div class="sf-header-navigation-item__item sf-header-navigation-item__item--desktop">
+    <div class="sf-header-navigation-item__item sf-header-navigation-item__item--desktop" style="display:none">
       <HeaderNavigationItem
         v-for="(category, index) in categoryTree"
         :key="index"

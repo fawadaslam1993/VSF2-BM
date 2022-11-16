@@ -1,5 +1,6 @@
 <template>
   <div id="home">
+    <VueJsDev />
     <HeroSection
       class="hero-section"
       :title="hero.title"
@@ -93,6 +94,7 @@ export default defineComponent({
     InstagramFeed: () => import(/* webpackPrefetch: true */ '~/components/InstagramFeed.vue'),
     MobileStoreBanner: () => import(/* webpackPrefetch: true */ '~/components/MobileStoreBanner.vue'),
     NewProducts: () => import(/* webpackPrefetch: true */ '~/components/NewProducts.vue'),
+    VueJsDev: () => import(/* webpackPrefetch: true */ '~/modules/fawad/components/VueJsDev.vue'),
   },
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   setup() {

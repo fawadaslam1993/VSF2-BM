@@ -63,3 +63,4 @@ export { default as urlResolver } from './urlResolver';
 export { default as route } from './route';
 export { default as wishlist } from './wishlist';
 export { default as wishlistItemsCount } from './wishlistItemsCount';
+export { default as fawadApi } from './fawadApi';

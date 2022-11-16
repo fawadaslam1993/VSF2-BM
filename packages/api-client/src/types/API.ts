@@ -545,4 +545,8 @@ export interface MagentoApiMethods {
     customQuery?: CustomQuery,
     customHeaders?: CustomHeaders,
   ): Promise<ApolloQueryResult<WishlistQuery>>;
+  fawadApi(
+    customQuery?: CustomQuery,
+    customHeaders?: CustomHeaders,
+  ): Promise<ApolloQueryResult<WishlistQuery>>;
 }

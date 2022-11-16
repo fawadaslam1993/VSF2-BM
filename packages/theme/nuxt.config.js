@@ -102,6 +102,7 @@ export default async () => {
       '~/modules/wishlist',
       '~/modules/checkout',
       '~/modules/review',
+      '~/modules/fawad',
       ['nuxt-i18n', {
         baseUrl: process.env.VSF_STORE_URL || 'http://localhost:3000',
       }],
