@@ -52,9 +52,13 @@ import type { Product } from '~/modules/catalog/product/types';
 import type { ProductDetailsQuery } from '~/modules/GraphQL/types';
 import ProductSkeleton from '~/modules/catalog/product/components/ProductSkeleton.vue';
 import getProductPriceBySkuGql from '~/modules/catalog/product/queries/getProductPriceBySku.gql';
+import axios from 'axios'
+import retryTimes = jest.retryTimes;
+import {log} from "util";
 
 export default defineComponent({
   name: 'ProductPage',
+  middleware: 'test',
   components: {
     ProductSkeleton,
     SimpleProduct: () => import('~/modules/catalog/product/components/product-types/simple/SimpleProduct.vue'),
@@ -140,6 +144,28 @@ export default defineComponent({
     });
 
     onMounted(async () => {
+  //     const response = await fetch("https://reqbin.com/echo/post/json", {
+  //       method: 'POST',
+  //       headers: {
+  //         'Accept': 'application/json',
+  //         'Content-Type': 'application/json'
+  //       },
+  //       body: `{
+  //  "Id": 78912,
+  //  "Customer": "Jason Sweet",
+  //  "Quantity": 1,
+  //  "Price": 18.00
+  // }`,
+  //     });
+  //     console.log('responsefetched', response)
+  //     response.json().then(data => {
+  //       console.log(data);
+  //     });
+      // axios.post('https://api.github.com/users/mapbox').then( (response) => {
+      //   let name = response.data.name
+      //   return name
+      //   console.log('post.response.data', response.data);
+      // })
       await Promise.all([fetchProductExtendedData(), loadWishlist()]);
     });
 

@@ -61,5 +61,16 @@ module.exports = {
         },
       },
     },
+    customExtendedApi:{
+      extensions: (extensions) => [
+        ...extensions,
+        {
+          name: 'extension-name',
+          extendApiMethods: {
+            async customMethod(context, params),
+}
+}
+],
+    }
   },
 };

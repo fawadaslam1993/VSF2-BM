@@ -1,5 +1,5 @@
 <template>
-  <div id="home">
+  <div id="ho5666me">
     <HeroSection
       class="hero-section"
       :title="hero.title"
@@ -83,6 +83,7 @@ import LoadWhenVisible from '~/components/utils/LoadWhenVisible.vue';
 
 export default defineComponent({
   name: 'HomePage',
+  middleware:'test',
   components: {
     HeroSection,
     LazyHydrate,
